@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 import Skills from "../components/skills";
 import cvlotte from "../assets/images/cvLotte.png"
 import cvDevWeb from "../assets/images/cvdev.png"
 
 import { AnimationOnScroll } from 'react-animation-on-scroll';
-import { useState } from "react";
 
 function About () {
   const [showCV, setShowCV] = useState(false);
@@ -13,15 +13,19 @@ function About () {
     setShowCV(!showCV);
   }
 
+  // function toggleBlur() {
+  //     setShowCV(false);
+  // }
+
     return(
       <div>
         <section className="sec" id="about">
-        <h2>Bonjour !</h2>
-        <div className="lottedescription">
-        <AnimationOnScroll animateIn="bounceInRight" animateOut="bounceOutRight" className="cvlotte" style={{ animationDuration: '2s' }}>
-        <button type="button" onClick={toggleCV} id="buttoncv">
-          <img src={cvlotte} alt="cv Lotte" id="cvlotte" />
-          </button>
+          <h2>Bonjour !</h2>
+        <div className="lottedescription" onClick={toggleCV}>
+          <AnimationOnScroll animateIn="bounceInRight" animateOut="bounceOutRight" className="cvlotte" style={{ animationDuration: '2s' }}>
+                <button type="button" onClick={toggleCV} id="buttoncv">
+                  <img src={cvlotte} alt="cv Lotte" id="cvlotte" />
+                </button>
           </AnimationOnScroll>
           {showCV && (
             <div className="cv">
@@ -31,6 +35,7 @@ function About () {
             </button>
             </div>
           )}
+          
           <div className="texte">
             <p>
            
@@ -39,9 +44,11 @@ function About () {
 J'adore intégrer des illustrations uniques dans mes projets pour y apporter une touche artistique. Si vous cherchez à donner vie à votre vision en ligne, n'hésitez pas à me contacter. Ensemble, nous pouvons créer quelque chose d'exceptionnel qui reflète parfaitement votre identité.            </p>
           </div>
         </div>
-   
-      <h2> ... Voici mes outils de travail</h2>
-      <Skills />
+      
+      <div className="skills-eggs">
+        <h2> ... Voici mes outils de travail</h2>
+        <Skills />
+      </div>
       </section>
       </div>
     )
