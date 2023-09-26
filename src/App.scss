@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-/* color principal : couleur principale : #022873 / blue : #2e60b9 / cyan : #61aec0 / Jaune : #ffc652/ Rouge : #d8665b */
+
 :root {
   --main-color: #042578;
   --blue: #2e60b9;
@@ -353,9 +353,7 @@ html {
     }
 
     /************************** Skills***************/
-    // .skills-eggs{
-    //     height: 65vh;
-    // }
+
     .skills {
       position: relative;
       height: 750px;
@@ -461,14 +459,14 @@ html {
       }
 
       #egg4 {
-        left: 79%;
-        top: 19%;
+        left: 81%;
+        top: 21%;
         transform: translate(0%, 0%);
       }
 
       #egg5 {
-        left: 9%;
-        top: 15%;
+        left: 7%;
+        top: 16%;
         transform: translate(0%, 0%);
       }
 
@@ -640,12 +638,15 @@ html {
     }
     @media screen and (max-width: 550px) {
       .sec {
+        .texte p {
+          text-align: initial;
+        }
         .skills {
           height: 280px;
         }
       }
     }
-    @media screen and (max-width: 550px) {
+    @media screen and (max-width: 450px) {
       .sec {
         .skills {
           height: 240px;
@@ -674,6 +675,11 @@ html {
       }
       .sec .skills {
         height: 180px;
+      }
+    }
+    @media screen and (max-width: 300px) {
+      .sec .skills {
+        height: 150px;
       }
     }
     @media screen and (max-width: 290px) {
@@ -876,13 +882,13 @@ html {
 
       .modal {
         width: 60%;
-        height: 100%;
+        max-width: 1000px;
         position: absolute;
         z-index: 100;
         background-color: var(--blue);
         border-radius: 5%;
         padding: 1.5rem;
-        right: 5rem;
+        right: 8rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -961,6 +967,30 @@ html {
         margin: 1.4rem;
       }
     }
+    @media screen and (min-width: 2000px) {
+      .portfolio {
+        .modal {
+          right: 32rem;
+        }
+      }
+    }
+    @media screen and (min-width: 1900px) {
+      .portfolio {
+        .modal {
+          right: 15rem;
+        }
+      }
+    }
+
+    @media screen and (min-width: 1600px) {
+      .portfolio
+        .portfoliocontainer
+        .descriptionandproject
+        .description
+        .détailprojets {
+        width: 80%;
+      }
+    }
 
     @media screen and (max-width: 1300px) {
       .portfolio {
@@ -1019,10 +1049,6 @@ html {
           width: 73vw;
           right: 2rem;
           overflow-x: hidden;
-
-          h2 {
-            margin-top: 3em;
-          }
         }
       }
     }
@@ -1099,6 +1125,16 @@ html {
       }
     }
 
+    @media screen and (max-width: 330px) {
+      .portfolio {
+        height: 600px;
+
+        p {
+          font-size: 0.85em;
+        }
+      }
+    }
+
     @media screen and (max-width: 300px) {
       .portfolio {
         height: 650px;
@@ -1111,9 +1147,10 @@ html {
     /*************Contact**************************/
 
     .contact {
-      margin-top: 8rem;
       display: flex;
       flex-wrap: wrap;
+      max-width: 1600px;
+      margin: 8rem auto 4rem;
       justify-content: flex-start;
 
       h2 {
@@ -1123,6 +1160,7 @@ html {
 
       .messagelotte {
         display: flex;
+        width: 101%;
 
         img {
           width: 28%;
@@ -1270,6 +1308,14 @@ html {
       .contact form .btn {
         width: 81%;
         margin-left: 0;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .contact {
+        h2 {
+          margin-right: 0;
+        }
       }
     }
 
