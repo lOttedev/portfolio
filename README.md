@@ -1,7 +1,7 @@
 Hi everyone !
 
-This is my portfolio don't hesitate to check it and give me your opinion :)
+My name is Laurène, this is my portfolio and I hope you'll enjoy it
 
-Have fun ! 
+Have fun !
 
 # portfolio

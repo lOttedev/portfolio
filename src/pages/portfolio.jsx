@@ -70,8 +70,22 @@ function Portfolio() {
                 />
               </div>
               <div className="lien-site">
-                <a href={selectedSite.github}> Lien GitHub </a>
-                <a href={selectedSite.url}> Lien du Site </a>
+                <a
+                  href={selectedSite.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Lien GitHub{" "}
+                </a>
+                <a
+                  href={selectedSite.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  Lien du Site{" "}
+                </a>
               </div>
             </div>
           )}
