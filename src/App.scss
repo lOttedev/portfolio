@@ -162,6 +162,7 @@ html {
           top: 0;
           z-index: 20;
           margin: 0;
+          padding: 15px;
 
           li a.active {
             color: var(--yellow);
@@ -169,7 +170,7 @@ html {
 
           li {
             list-style: none;
-            margin: 15px 20px 15px 15px;
+            margin: 15px 20px 15px 0px;
 
             a {
               text-decoration: none;
@@ -188,11 +189,11 @@ html {
           color: var(--blue);
           background-color: #fff;
           border-radius: 50%;
-          width: 15px;
-          height: 15px;
+          width: 22px;
+          height: 22px;
           padding: 5px;
           z-index: 30;
-          margin-right: 10px;
+          margin-right: 5px;
           margin-top: -26px;
         }
       }
@@ -825,7 +826,6 @@ html {
           .description {
             .détailprojets {
               width: 90%;
-
               margin-top: 0;
             }
           }
@@ -848,12 +848,7 @@ html {
               border-radius: 50%;
               background-color: var(--whitetext);
               border: none;
-              transition: 0.3s ease;
               cursor: pointer;
-            }
-
-            button:hover {
-              transform: scale(1.1);
             }
 
             img {
@@ -934,7 +929,6 @@ html {
             object-fit: contain;
             margin: 1rem;
             border-radius: 5%;
-            background-color: var(--main-color);
           }
         }
         .lien-site {
@@ -1003,7 +997,25 @@ html {
         }
       }
     }
+    @media screen and (min-width: 1000px) {
+      .portfolio .portfoliocontainer .descriptionandproject .swippe button {
+        margin: 3em 2em 0;
+        padding: 1.1rem;
+        border-radius: 50%;
+        background-color: var(--whitetext);
+        border: none;
+        transition: 0.3s ease;
+        cursor: pointer;
+      }
 
+      .portfolio
+        .portfoliocontainer
+        .descriptionandproject
+        .swippe
+        button:hover {
+        transform: scale(1.1);
+      }
+    }
     @media screen and (max-width: 840px) {
       .portfolio {
         height: fit-content;
@@ -1251,12 +1263,40 @@ html {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        align-items: baseline;
+
+        .tel {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            color: var(--whitetext);
+            margin: 1em;
+            text-decoration: none;
+          }
+        }
+        .mail {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            color: var(--whitetext);
+            margin: 1em;
+            text-decoration: none;
+          }
+        }
       }
 
       .contact p {
         color: white;
         font-weight: 500;
         font-size: 20px;
+      }
+    }
+    @media screen and (min-width: 1000px) {
+      .contact #formncontact {
+        max-width: 80%;
+        margin: auto;
       }
     }
 

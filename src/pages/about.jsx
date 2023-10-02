@@ -22,7 +22,7 @@ function About() {
             animateIn="bounceInRight"
             animateOut="bounceOutRight"
             className="cvlotte"
-            style={{ animationDuration: "2s" }}
+            style={{ animationDuration: "1.5s" }}
           >
             <button type="button" onClick={toggleCV} id="buttoncv">
               <img src={cvlotte} alt="cv Lotte" id="cvlotte" />

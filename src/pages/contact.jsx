@@ -15,13 +15,17 @@ function Contact() {
       <div id="formncontact">
         <MyForm />
         <div className="telephonmail">
-          <p>
-            Telephone : 07.82.84.09.30 <br />
-            <br />
-            Mail : laurene.buttelli@gmail.com <br />
-            <br />
-            Localisation : Bayonne, France
-          </p>
+          <div className="tel">
+            <p>Téléphone : </p>
+            <a href="tel:+07.82.84.09.30">07.82.84.09.30</a>
+          </div>
+          <div className="mail">
+            <p>Mail : </p>
+            <a href="mailto:laurene.buttelli@gmail.com">
+              laurene.buttelli@gmail.com
+            </a>
+          </div>
+          <p>Localisation : Bayonne, France</p>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import HouseLotte from "../components/Lottehouse";
 import logoSite from "../assets/siteWeb";
@@ -15,8 +15,25 @@ function Portfolio() {
     setSelectedSite(site);
   }
 
+  useEffect(() => {
+    const setVideoAutoplay = () => {
+      const videos = document.querySelectorAll("video");
+      if (window.innerWidth < 800) {
+        videos.forEach((video) => video.removeAttribute("autoplay"));
+      } else {
+        videos.forEach((video) => video.setAttribute("autoplay", true));
+      }
+    };
+    setVideoAutoplay();
+    window.addEventListener("resize", setVideoAutoplay);
+
+    return () => {
+      window.removeEventListener("resize", setVideoAutoplay);
+    };
+  }, []);
+
   return (
-    <section className="portfolio">
+    <section className="portfolio" id="portfolio">
       <h2> Ici mes créations et collaborations </h2>
 
       <div className="portfoliocontainer">
@@ -63,7 +80,7 @@ function Portfolio() {
               <p>{selectedSite.description}</p>
               <div className="video">
                 <video
-                  autoPlay="true"
+                  autoPlay={true}
                   src={selectedSite.video}
                   alt={selectedSite.name}
                   id="video"
