@@ -849,6 +849,7 @@ html {
               background-color: var(--whitetext);
               border: none;
               cursor: pointer;
+              overflow: hidden;
             }
 
             img {
@@ -856,6 +857,7 @@ html {
               height: 10rem;
               object-fit: contain;
               padding: 5px;
+              pointer-events: none;
             }
 
             .sloggan {
@@ -925,7 +927,6 @@ html {
 
           video#video {
             width: 70%;
-            height: fit-content;
             object-fit: contain;
             margin: 1rem;
             border-radius: 5%;
