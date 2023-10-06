@@ -26,7 +26,7 @@ const logoSite = [
     description:
       "Questubois incarne le fruit d'une collaboration collective au sein d'une plateforme dédiée à l'univers de la bière. Cette création englobe divers jeux captivants : l'un d'entre eux offre la possibilité de sélectionner sa bière idéale en personnalisant un profil, dans une démarche évoquant celle de Tinder. L'autre fonctionnalité, permet de choisir une ou plusieurs variétés de bières en harmonie avec ses choix culinaires.",
     github: "https://github.com/lOttedev/QuesTuBois.git",
-    url: "https://github.com/lOttedev/QuesTuBois.git",
+    url: "https://questubois.lottedev.fr",
   },
   {
     id: 3,
