@@ -5,7 +5,7 @@ import sdsVideo from "./TuumVehiculum.mp4";
 import chocoVideo from "./ChocknClick.mp4";
 import tinderBeer from "./QuestuBois.mp4";
 import eatingnamnam from "./images/logoEatingNamNam.png";
-import eatingnamnamVideo from "./eatingnnvideo.mp4";
+import eatingnamnamVideo from "./eatingvid.mp4";
 
 const logoSite = [
   {
