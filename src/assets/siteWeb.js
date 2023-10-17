@@ -47,7 +47,7 @@ const logoSite = [
     name: "Eating Nam Nam",
     video: eatingnamnamVideo,
     sloggan:
-      "Créez, partagez, dégustez - l'essence de la cuisine sur Eating Nam Nam.",
+      "Créez, partagez, dégustez. L'essence de la cuisine sur Eating Nam Nam.",
     description:
       "Eating Nam Nam est un site de cuisine réalisé en groupe suite à une commande d'un client. Si vous êtes connecté, vous pouvez, créer une recette, y ajouter et noter des recettes d'autres utilisateurs. Vous avez aussi un accès aux apports nutritionnels pour chaque recette. Bon appétit !",
     github:

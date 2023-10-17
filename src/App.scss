@@ -80,7 +80,7 @@ html {
       h2 {
         font-size: 3em;
         padding: 15px 0;
-        margin-left: 1em;
+        margin: 1em;
       }
 
       p {
@@ -821,7 +821,7 @@ html {
         .descriptionandproject {
           display: flex;
           flex-direction: column;
-          margin-left: 5em;
+          margin-left: 2em;
 
           .description {
             .détailprojets {
@@ -835,6 +835,7 @@ html {
             scrollbar-width: thin;
             overflow-y: hidden;
             width: 100%;
+            max-width: 900px;
           }
           .swippe {
             display: flex;
