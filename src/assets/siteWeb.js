@@ -4,6 +4,8 @@ import sds from "./images/logo-sleepy-dev-squad.png";
 import sdsVideo from "./TuumVehiculum.mp4";
 import chocoVideo from "./ChocknClick.mp4";
 import tinderBeer from "./QuestuBois.mp4";
+import eatingnamnam from "./images/logoEatingNamNam.png";
+import eatingnamnamVideo from "./videoEatingnamnam.mp4";
 
 const logoSite = [
   {
@@ -38,6 +40,19 @@ const logoSite = [
       "Le site Tuum Vehiculum a vu le jour grâce à une collaboration étroite au sein de mon équipe, les Sleepy Dev Squad, lors d'un hackathon palpitant de moins de 48 heures. La thématique qui nous a été attribuée était la conception d'un site qui aurait eu une utilité dans une ère où l'internet n'existait pas encore. Ainsi, nous avons plongé dans les méandres du Moyen Âge pour concevoir une plateforme de location de véhicules, avec ou sans cocher, dédiée à faciliter divers trajets. Cette idée novatrice s'inspire bien évidemment du concept de Uber, tout en étant ancrée dans une époque révolue.",
     github: "https://github.com/lOttedev/Sleepy_Dev_Squad.git",
     url: "https://tuum-vehiculum.achap.fr/",
+  },
+  {
+    id: 4,
+    image: eatingnamnam,
+    name: "Eating Nam Nam",
+    video: eatingnamnamVideo,
+    sloggan:
+      "Créez, partagez, dégustez - l'essence de la cuisine sur Eating Nam Nam.",
+    description:
+      "Eating Nam Nam est un site de cuisine réalisé en groupe suite à une commande d'un client. Si vous êtes connecté, vous pouvez, créer une recette, y ajouter et noter des recettes d'autres utilisateurs. Vous avez aussi un accès aux apports nutritionnels pour chaque recette. Bon appétit !",
+    github:
+      "https://github.com/WildCodeSchool/2023-05-JS-RemoteFR-LaBoulangerieDuCode-P3-eating-nam-nam",
+    url: "https://eating-nam-nam.c-sia.com/",
   },
 ];
 
