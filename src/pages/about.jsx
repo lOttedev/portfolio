@@ -39,11 +39,11 @@ function About() {
 
           <div className="texte">
             <p>
-              Je suis Laurène, développeuse web et fondatrice de l'entreprise
-              LOtte spécialisée dans le web et le design. Avec un master en
-              design couleur et matière, j'ai acquis une solide expertise en
-              design graphique. Mon parcours m'a également conduit à explorer ma
-              passion pour le développement web, où je combine créativité et
+              Je suis Laurène, développeuse web front-end et designer.
+              Détentrice master en design couleur et matière, j'ai acquis une
+              solide expertise en design graphique mais aussi dans
+              l'illustration et le motion design. Mon parcours m'a également
+              conduit à explorer le développement où je combine créativité et
               résolution de problèmes techniques. J'adore intégrer des
               illustrations uniques dans mes projets pour y apporter une touche
               artistique. Si vous cherchez à donner vie à votre projet en ligne,

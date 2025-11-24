@@ -80,7 +80,7 @@ html {
       h2 {
         font-size: 3em;
         padding: 15px 0;
-        margin-left: 1em;
+        margin: 1em;
       }
 
       p {
@@ -525,6 +525,16 @@ html {
           height: 800px;
         }
       }
+      .portfolio {
+        p {
+          font-size: 1.5rem;
+        }
+      }
+      .contact {
+        p, a, label, .btn {
+          font-size: 1.5rem;
+        }
+      }
     }
 
     @media screen and (max-width: 1300px) {
@@ -821,7 +831,7 @@ html {
         .descriptionandproject {
           display: flex;
           flex-direction: column;
-          margin-left: 5em;
+          margin-left: 2em;
 
           .description {
             .détailprojets {
@@ -835,6 +845,7 @@ html {
             scrollbar-width: thin;
             overflow-y: hidden;
             width: 100%;
+            max-width: 900px;
           }
           .swippe {
             display: flex;
@@ -872,25 +883,38 @@ html {
               font-weight: 500;
               font-family: "Poppins", sans-serif;
               color: var(--blue);
+              font-size: 1rem;
             }
           }
         }
       }
 
+      .modal-backdrop {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+      }
+
       .modal {
         width: 60%;
         max-width: 1000px;
-        position: absolute;
-        z-index: 100;
+        position: relative;
+        z-index: 1001;
         background-color: var(--blue);
         border-radius: 5%;
         padding: 1.5rem;
-        right: 8rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        max-height: 80%;
-        overflow-y: scroll;
+        max-height: 90vh;
+        overflow-y: auto;
 
         .close-modal {
           border-radius: 50%;
@@ -917,7 +941,7 @@ html {
         }
 
         p {
-          font-size: 0.8rem;
+          font-size: 1em;
         }
 
         .video {
@@ -925,8 +949,10 @@ html {
           justify-content: center;
           align-items: center;
 
-          video#video {
-            width: 70%;
+          video#video, iframe#video {
+            width: 100%;
+            max-width: 600px;
+            max-height: 40vh;
             object-fit: contain;
             margin: 1rem;
             border-radius: 5%;
@@ -937,7 +963,7 @@ html {
           justify-content: center;
 
           a {
-            font-size: 0.8rem;
+            font-size: 1em;
             text-decoration: none;
             margin: 2em;
             font-weight: 700;
@@ -960,20 +986,6 @@ html {
       }
       ::-webkit-scrollbar-track {
         margin: 1.4rem;
-      }
-    }
-    @media screen and (min-width: 2000px) {
-      .portfolio {
-        .modal {
-          right: 32rem;
-        }
-      }
-    }
-    @media screen and (min-width: 1900px) {
-      .portfolio {
-        .modal {
-          right: 15rem;
-        }
       }
     }
 
@@ -1060,7 +1072,6 @@ html {
 
         .modal {
           width: 73vw;
-          right: 2rem;
           overflow-x: hidden;
         }
       }
@@ -1088,15 +1099,38 @@ html {
       }
     }
 
+    @media screen and (max-width: 1024px) {
+      .portfolio {
+        .portfoliocontainer .descriptionandproject {
+          .sites {
+            .swippe {
+              .sloggan {
+                display: flex;
+              }
+            }
+          }
+        }
+      }
+    }
+
     @media screen and (max-width: 550px) {
       .portfolio {
         position: relative;
-        height: 650px;
-        margin: 3em 0;
+        height: auto;
+        margin: 1em 0;
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+
+        .portfoliocontainer {
+          flex-wrap: wrap;
+          padding: 0;
+          box-sizing: border-box;
+        }
 
         .portfoliocontainer .portfolioillus {
-          height: 229px;
-          width: 148px;
+          height: 180px;
+          width: 120px;
+          flex-shrink: 0;
         }
         .portfoliocontainer .portfolioillus .bebechouette #bb1 {
           bottom: 2rem;
@@ -1107,12 +1141,42 @@ html {
         }
       }
       .portfolio .portfoliocontainer .descriptionandproject {
-        width: 80%;
+        flex: 1;
+        min-width: 0;
+        margin-left: 0.5rem;
+        padding: 0;
+
+        .description .détailprojets {
+          margin-bottom: 0.5rem;
+          width: 100%;
+        }
         .sites {
-          width: 97%;
-          position: absolute;
-          left: 0;
-          bottom: 0;
+          width: 100%;
+          margin-top: 0;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+
+          .swippe {
+            margin: 0.5rem 0.3rem;
+
+            button {
+              margin: 1rem 0.5rem 0;
+              padding: 0.6rem;
+            }
+
+            img {
+              width: 5rem;
+              height: 5rem;
+            }
+
+            .sloggan {
+              max-width: 6rem;
+
+              p {
+                font-size: 0.75rem;
+              }
+            }
+          }
         }
       }
     }
@@ -1122,7 +1186,6 @@ html {
         height: 550px;
 
         .modal {
-          right: 1rem;
           justify-content: normal;
 
           h2 {
@@ -1132,7 +1195,7 @@ html {
 
           .lien-site a {
             margin: 1em;
-            font-size: 0.7rem;
+            font-size: 1em;
           }
         }
       }
@@ -1291,8 +1354,8 @@ html {
       .contact p {
         color: white;
         font-weight: 500;
-        font-size: 20px;
       }
+
     }
     @media screen and (min-width: 1000px) {
       .contact #formncontact {

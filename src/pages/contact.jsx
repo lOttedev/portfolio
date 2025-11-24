@@ -25,7 +25,7 @@ function Contact() {
               laurene.buttelli@gmail.com
             </a>
           </div>
-          <p>Localisation : Bayonne, France</p>
+          <p>Localisation : &nbsp; &nbsp; Bayonne, France</p>
         </div>
       </div>
     </section>
