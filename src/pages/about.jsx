@@ -16,7 +16,27 @@ function About() {
   return (
     <div>
       <section className="sec" id="about">
-        <h2>Bonjour !</h2>
+        <h2>Enchantée, moi c'est Laurène</h2>
+        <div className="texte">
+          <p>
+            Développeuse front-end et designer, j'aime donner forme aux idées
+            jusqu'à ce qu'elles deviennent évidentes, fluides… et visuellement
+            impactantes.
+            <br />
+            Issue d'un master en design couleur et matière, j'ai bâti un univers
+            où se rencontrent design graphique, illustration, motion design et
+            développement web. J'aime créer des interfaces qui respirent,
+            raconter des histoires en images, et glisser dans mes projets des
+            détails graphiques qui font toute la différence.
+            <br />
+            Mon approche : un mélange assumé de créativité, de logique et
+            d'expérimentation. Mon objectif : créer des expériences en ligne
+            uniques, sensibles et cohérentes avec votre identité.
+            <br />
+            Vous avez un projet à faire exister ? Parlons-en. Construisons
+            ensemble quelque chose de véritablement singulier.{" "}
+          </p>
+        </div>
         <div className="lottedescription" onClick={toggleCV}>
           <AnimationOnScroll
             animateIn="bounceInRight"
@@ -36,27 +56,10 @@ function About() {
               </button>
             </div>
           )}
-
-          <div className="texte">
-            <p>
-              Je suis Laurène, développeuse web front-end et designer.
-              Détentrice master en design couleur et matière, j'ai acquis une
-              solide expertise en design graphique mais aussi dans
-              l'illustration et le motion design. Mon parcours m'a également
-              conduit à explorer le développement où je combine créativité et
-              résolution de problèmes techniques. J'adore intégrer des
-              illustrations uniques dans mes projets pour y apporter une touche
-              artistique. Si vous cherchez à donner vie à votre projet en ligne,
-              n'hésitez pas à me contacter. Ensemble, nous pouvons créer quelque
-              chose d'exceptionnel qui reflète parfaitement votre identité.{" "}
-              <br />
-              Pour voir mon CV, vous pouvez cliquer sur la chouette.{" "}
-            </p>
-          </div>
         </div>
 
         <div className="skills-eggs">
-          <h2> ... Voici mes outils de travail</h2>
+          <h2> ... Mes outils de travail</h2>
           <Skills />
         </div>
       </section>
