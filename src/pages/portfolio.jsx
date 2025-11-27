@@ -5,21 +5,6 @@ import logoSite from "../assets/siteWeb";
 
 function Portfolio() {
   const [selectedSite, setSelectedSite] = useState(null);
-  const [selectedSloggan, setSelectedSloggan] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  function toggleSloggan(siteId) {
-    setSelectedSloggan(siteId);
-  }
 
   function toggleSite(site) {
     setSelectedSite(site);
@@ -65,19 +50,15 @@ function Portfolio() {
                 <button
                   type="button"
                   onClick={() => toggleSite(site)}
-                  onMouseEnter={() => !isMobile && toggleSloggan(site.id)}
-                  onMouseLeave={() => !isMobile && toggleSloggan(null)}
                 >
                   <img src={site.image} alt={site.name} id="swipper" />
                 </button>
-                {(isMobile || selectedSloggan === site.id) && (
-                  <div
-                    className="sloggan"
-                    onClick={() => toggleSite(site)}
-                  >
-                    <p className="text-sloggan"> {site.sloggan} </p>
-                  </div>
-                )}
+                <div
+                  className="sloggan"
+                  onClick={() => toggleSite(site)}
+                >
+                  <p className="text-sloggan"> {site.sloggan} </p>
+                </div>
               </div>
             ))}
           </div>
@@ -114,22 +95,26 @@ function Portfolio() {
                   )}
                 </div>
                 <div className="lien-site">
-                  <a
-                    href={selectedSite.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {" "}
-                    Lien GitHub{" "}
-                  </a>
-                  <a
-                    href={selectedSite.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {" "}
-                    Lien du Site{" "}
-                  </a>
+                  {selectedSite.github && (
+                    <a
+                      href={selectedSite.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      Lien GitHub{" "}
+                    </a>
+                  )}
+                  {selectedSite.url && (
+                    <a
+                      href={selectedSite.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      Lien du Site{" "}
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
