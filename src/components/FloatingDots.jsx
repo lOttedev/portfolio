@@ -4,9 +4,13 @@ function FloatingDots({ count = 15 }) {
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    const maxSize = isMobile ? 3 : 6;
+    const minSize = isMobile ? 1 : 3;
+
     const generatedDots = Array.from({ length: count }, (_, i) => ({
       id: i,
-      size: Math.random() * 6 + 3,
+      size: Math.random() * maxSize + minSize,
       left: Math.random() * 100,
       top: Math.random() * 100,
       duration: Math.random() * 10 + 10,

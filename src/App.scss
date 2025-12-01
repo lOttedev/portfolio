@@ -239,8 +239,13 @@ html {
         height: 100%;
         background-image: url(./assets/images/ciel.png);
         background-size: cover;
+        background-position: center center;
         z-index: 1;
         animation: sunPulse 4s ease-in-out infinite;
+
+        @media screen and (max-width: 768px) {
+          background-position: center 30%;
+        }
       }
 
       img {
