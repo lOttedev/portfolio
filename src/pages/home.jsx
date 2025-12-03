@@ -23,15 +23,19 @@ function Home() {
       let value = window.scrollY;
       const isMobile = window.innerWidth < 768;
 
-      stars.style.left = value * 0.25 + "px";
-      logolotte.style.marginTop = value * 1.5 + "px";
-      thirdplan.style.top = value * 0.35 + "px";
-      secondplan.style.top = value * 0.5 + "px";
-
-      // Effet parallax plus lent sur mobile
       if (isMobile) {
+        // Effets très réduits sur mobile pour éviter le zoom
+        stars.style.left = value * 0.1 + "px";
+        logolotte.style.marginTop = value * 0.5 + "px";
+        thirdplan.style.top = value * 0.1 + "px";
+        secondplan.style.top = value * 0.15 + "px";
         hero.style.backgroundPositionY = value * 0.05 + "px";
       } else {
+        // Effets normaux sur desktop
+        stars.style.left = value * 0.25 + "px";
+        logolotte.style.marginTop = value * 1.5 + "px";
+        thirdplan.style.top = value * 0.35 + "px";
+        secondplan.style.top = value * 0.5 + "px";
         hero.style.backgroundPositionY = value * 0.2 + "px";
       }
     };
