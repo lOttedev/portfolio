@@ -5,8 +5,8 @@ function FloatingDots2({ count = 15 }) {
 
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
-    const maxSize = isMobile ? 4 : 12;
-    const minSize = isMobile ? 2 : 7;
+    const maxSize = isMobile ? 3 : 12;
+    const minSize = isMobile ? 1 : 7;
 
     const generatedDots = Array.from({ length: count }, (_, i) => ({
       id: i,
