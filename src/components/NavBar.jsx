@@ -12,7 +12,7 @@ function NavBar() {
 
   return (
     <navbar>
-        <a href="/" className="active">
+        <a href="#home" className="active">
           <img src={logo} alt="logo" id="logonav"/>
         </a>
 

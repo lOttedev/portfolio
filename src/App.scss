@@ -239,8 +239,13 @@ html {
         height: 100%;
         background-image: url(./assets/images/ciel.png);
         background-size: cover;
+        background-position: center center;
         z-index: 1;
         animation: sunPulse 4s ease-in-out infinite;
+
+        @media screen and (max-width: 768px) {
+          background-position: center 30%;
+        }
       }
 
       img {
@@ -1137,35 +1142,76 @@ html {
 
     @media screen and (max-width: 600px) {
       .portfolio {
-        padding-bottom: 0;
+        padding-bottom: 2rem;
+        min-height: 720px;
+        max-height: 750px;
       }
 
-      .portfolio .portfoliocontainer .descriptionandproject {
-        .sites {
-          margin-bottom: 2rem;
+      .portfolio .portfoliocontainer {
+        flex-wrap: wrap;
+
+        .illustrations {
+          flex: 0 0 40%;
+          width: 40%;
+          max-height: 200;
         }
 
-        .swippe {
-          flex: 0 0 calc(50% - 1em);
-          max-width: calc(50% - 1em);
-          margin: 0.5em;
+        .descriptionandproject {
+          flex: 0 0 60%;
+          width: 60%;
+          margin-left: 0;
 
-          button {
-            margin: 0.5em 0.5em 0;
-            padding: 0.8rem;
+          .description {
+            margin-bottom: 4rem;
           }
 
-          img {
-            width: 6rem;
-            height: 6rem;
+          .sites {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            width: 155% !important;
+            margin-left: -10rem !important;
+            margin-bottom: 0.1rem !important;
+            padding: 1rem 0 1rem 2rem !important;
+            gap: 1rem !important;
+            -webkit-overflow-scrolling: touch;
+            justify-content: center;
           }
 
-          .sloggan {
-            max-width: 10rem;
-            margin: 0.3rem;
+          .swippe {
+            display: flex !important;
+            flex-direction: column !important;
+            flex: 0 0 auto !important;
+            min-width: 150px !important;
+            max-width: 150px !important;
+            margin: 0 !important;
+            flex-shrink: 0 !important;
 
-            p {
-              font-size: 0.75rem;
+            button {
+              margin: 0.5em auto 0;
+              padding: 0.8rem;
+              width: 8rem;
+              height: 8rem;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            img {
+              width: 6rem;
+              height: 6rem;
+            }
+
+            .sloggan {
+              max-width: 10rem;
+              margin: 0.3rem;
+
+              p {
+                font-size: 0.75rem;
+              }
             }
           }
         }
@@ -1302,7 +1348,7 @@ html {
         position: relative;
         height: auto;
         margin: 1em 0;
-        padding: 0 0.5rem;
+        padding: 0.8 0.5rem;
         box-sizing: border-box;
 
         .portfoliocontainer {

@@ -21,11 +21,19 @@ function Home() {
 
     const handleScroll = () => {
       let value = window.scrollY;
+      const isMobile = window.innerWidth < 768;
+
       stars.style.left = value * 0.25 + "px";
       logolotte.style.marginTop = value * 1.5 + "px";
       thirdplan.style.top = value * 0.35 + "px";
       secondplan.style.top = value * 0.5 + "px";
-      hero.style.backgroundPositionY = value * 0.2 + "px";
+
+      // Effet parallax plus lent sur mobile
+      if (isMobile) {
+        hero.style.backgroundPositionY = value * 0.05 + "px";
+      } else {
+        hero.style.backgroundPositionY = value * 0.2 + "px";
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
