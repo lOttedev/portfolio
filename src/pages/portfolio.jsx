@@ -6,12 +6,21 @@ import logoSite from "../assets/siteWeb";
 function Portfolio() {
   const [selectedSite, setSelectedSite] = useState(null);
   const [origin, setOrigin] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
   const modalRef = useRef(null);
 
   function toggleSite(site, event) {
     const rect = event.currentTarget.getBoundingClientRect();
     setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
     setSelectedSite(site);
+  }
+
+  function closeSite() {
+    setIsClosing(true);
+    setTimeout(() => {
+      setSelectedSite(null);
+      setIsClosing(false);
+    }, 300);
   }
 
   useLayoutEffect(() => {
@@ -76,11 +85,11 @@ function Portfolio() {
             ))}
           </div>
           {selectedSite && (
-            <div className="modal-backdrop">
-              <div className="modal" ref={modalRef}>
+            <div className={`modal-backdrop ${isClosing ? "closing" : ""}`}>
+              <div className={`modal ${isClosing ? "closing" : ""}`} ref={modalRef}>
                 <button
                   className="close-modal"
-                  onClick={() => setSelectedSite(null)}
+                  onClick={closeSite}
                 >
                   X
                 </button>

@@ -9,6 +9,7 @@ import nid1erplan from "../assets/images/Nid-Paille-1erPlan.png";
 function Skills() {
   const [modalContent, setModalContent] = useState(null);
   const [origin, setOrigin] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
   const modalRef = useRef(null);
 
   const eggData = {
@@ -41,7 +42,11 @@ function Skills() {
   };
 
   const closeModal = () => {
-    setModalContent(null);
+    setIsClosing(true);
+    setTimeout(() => {
+      setModalContent(null);
+      setIsClosing(false);
+    }, 300);
   };
 
   useLayoutEffect(() => {
@@ -86,9 +91,9 @@ function Skills() {
       </div>
 
       {modalContent && (
-        <div className="modal-overlay" onClick={closeModal}>
+        <div className={`modal-overlay ${isClosing ? "closing" : ""}`} onClick={closeModal}>
           <div
-            className="modal-content"
+            className={`modal-content ${isClosing ? "closing" : ""}`}
             onClick={(e) => e.stopPropagation()}
             ref={modalRef}
             style={{ "--accent-color": modalContent.color }}

@@ -11,17 +11,36 @@ function About() {
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
   const [cvOrigin, setCvOrigin] = useState(null);
+  const [isCvClosing, setIsCvClosing] = useState(false);
   const cvRef = useRef(null);
   const cvContainerRef = useRef(null);
 
-  function toggleCV(event) {
-    if (!showCV && event) {
+  function openCV(event) {
+    if (event) {
       const rect = event.currentTarget.getBoundingClientRect();
       setCvOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
     }
-    setShowCV(!showCV);
+    setShowCV(true);
     setIsZoomed(false);
     setZoomLevel(1);
+  }
+
+  function closeCV() {
+    setIsCvClosing(true);
+    setIsZoomed(false);
+    setZoomLevel(1);
+    setTimeout(() => {
+      setShowCV(false);
+      setIsCvClosing(false);
+    }, 300);
+  }
+
+  function toggleCV(event) {
+    if (showCV) {
+      closeCV();
+    } else {
+      openCV(event);
+    }
   }
 
   useLayoutEffect(() => {
@@ -83,10 +102,10 @@ function About() {
             </button>
           </AnimationOnScroll>
           {showCV && (
-            <div className="cv" ref={cvContainerRef}>
-              <img src={cvDevWeb} alt="cv en pdf" id="cv" ref={cvRef} />
+            <div className={`cv ${isCvClosing ? "closing" : ""}`} ref={cvContainerRef}>
+              <img src={cvDevWeb} alt="cv en pdf" id="cv" ref={cvRef} className={isCvClosing ? "closing" : ""} />
               <div className="cv-buttons">
-                <button className="close-modal" onClick={toggleCV}>
+                <button className="close-modal" onClick={(e) => { e.stopPropagation(); closeCV(); }}>
                   X
                 </button>
                 <a href={cvDevWeb} download="CV_Laurene_DevWeb.png" className="download-cv-btn">

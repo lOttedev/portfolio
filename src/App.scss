@@ -456,6 +456,10 @@ html {
           z-index: 1000;
           gap: 2rem;
           animation: fadeIn 0.3s;
+
+          &.closing {
+            animation: fadeOut 0.3s ease-in forwards;
+          }
         }
         #cv {
           object-fit: contain;
@@ -464,6 +468,10 @@ html {
           height: 80%;
           margin: 0;
           animation: growFromPoint 0.35s ease-out;
+
+          &.closing {
+            animation: shrinkToPoint 0.3s ease-in forwards;
+          }
         }
         .cv-buttons {
           display: flex;
@@ -704,12 +712,16 @@ html {
       align-items: center;
       z-index: 1000;
       animation: fadeIn 0.3s;
+
+      &.closing {
+        animation: fadeOut 0.3s ease-in forwards;
+      }
     }
 
     .modal-content {
       --accent-color: var(--blue);
       background-color: var(--whitetext);
-      padding: 2.5rem 2rem 2rem;
+      padding: 0.9rem 2rem 2rem;
       border-radius: 20px;
       max-width: 500px;
       margin: 1rem;
@@ -718,6 +730,10 @@ html {
       overflow: hidden;
       animation: growFromPoint 0.35s ease-out;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+      &.closing {
+        animation: shrinkToPoint 0.3s ease-in forwards;
+      }
     }
 
     .modal-accent-bar {
@@ -849,6 +865,26 @@ html {
       to {
         transform: scale(1);
         opacity: 1;
+      }
+    }
+
+    @keyframes shrinkToPoint {
+      from {
+        transform: scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
       }
     }
 
@@ -1388,6 +1424,10 @@ html {
         backdrop-filter: blur(10px);
         z-index: 1000;
         animation: fadeIn 0.3s;
+
+        &.closing {
+          animation: fadeOut 0.3s ease-in forwards;
+        }
       }
 
       .modal {
@@ -1404,6 +1444,10 @@ html {
         max-height: 90vh;
         overflow-y: auto;
         animation: growFromPoint 0.35s ease-out;
+
+        &.closing {
+          animation: shrinkToPoint 0.3s ease-in forwards;
+        }
 
         .close-modal {
           border-radius: 50%;
