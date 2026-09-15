@@ -1,14 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 
 import HouseLotte from "../components/Lottehouse";
 import logoSite from "../assets/siteWeb";
 
 function Portfolio() {
   const [selectedSite, setSelectedSite] = useState(null);
+  const [origin, setOrigin] = useState(null);
+  const modalRef = useRef(null);
 
-  function toggleSite(site) {
+  function toggleSite(site, event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
     setSelectedSite(site);
   }
+
+  useLayoutEffect(() => {
+    if (selectedSite && origin && modalRef.current) {
+      const el = modalRef.current;
+      const boxLeft = (window.innerWidth - el.offsetWidth) / 2;
+      const boxTop = (window.innerHeight - el.offsetHeight) / 2;
+      el.style.transformOrigin = `${origin.x - boxLeft}px ${origin.y - boxTop}px`;
+    }
+  }, [selectedSite, origin]);
 
   useEffect(() => {
     const setVideoAutoplay = () => {
@@ -49,13 +62,13 @@ function Portfolio() {
               <div key={site.id} className="swippe">
                 <button
                   type="button"
-                  onClick={() => toggleSite(site)}
+                  onClick={(e) => toggleSite(site, e)}
                 >
                   <img src={site.image} alt={site.name} id="swipper" />
                 </button>
                 <div
                   className="sloggan"
-                  onClick={() => toggleSite(site)}
+                  onClick={(e) => toggleSite(site, e)}
                 >
                   <p className="text-sloggan"> {site.sloggan} </p>
                 </div>
@@ -64,7 +77,7 @@ function Portfolio() {
           </div>
           {selectedSite && (
             <div className="modal-backdrop">
-              <div className="modal">
+              <div className="modal" ref={modalRef}>
                 <button
                   className="close-modal"
                   onClick={() => setSelectedSite(null)}

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import Skills from "../components/skills";
 import cvlotte from "../assets/images/cvLotte.png";
 import cvDevWeb from "../assets/images/cvdev.png";
@@ -10,12 +10,29 @@ function About() {
   const [showCV, setShowCV] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [cvOrigin, setCvOrigin] = useState(null);
+  const cvRef = useRef(null);
+  const cvContainerRef = useRef(null);
 
-  function toggleCV() {
+  function toggleCV(event) {
+    if (!showCV && event) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      setCvOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+    }
     setShowCV(!showCV);
     setIsZoomed(false);
     setZoomLevel(1);
   }
+
+  useLayoutEffect(() => {
+    if (showCV && cvOrigin && cvRef.current && cvContainerRef.current) {
+      const el = cvRef.current;
+      const containerRect = cvContainerRef.current.getBoundingClientRect();
+      const boxLeft = containerRect.left + el.offsetLeft;
+      const boxTop = containerRect.top + el.offsetTop;
+      el.style.transformOrigin = `${cvOrigin.x - boxLeft}px ${cvOrigin.y - boxTop}px`;
+    }
+  }, [showCV, cvOrigin]);
 
   function toggleZoom() {
     setIsZoomed(!isZoomed);
@@ -66,8 +83,8 @@ function About() {
             </button>
           </AnimationOnScroll>
           {showCV && (
-            <div className="cv">
-              <img src={cvDevWeb} alt="cv en pdf" id="cv" />
+            <div className="cv" ref={cvContainerRef}>
+              <img src={cvDevWeb} alt="cv en pdf" id="cv" ref={cvRef} />
               <div className="cv-buttons">
                 <button className="close-modal" onClick={toggleCV}>
                   X
