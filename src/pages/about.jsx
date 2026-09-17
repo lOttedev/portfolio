@@ -18,7 +18,10 @@ function About() {
   function openCV(event) {
     if (event) {
       const rect = event.currentTarget.getBoundingClientRect();
-      setCvOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+      setCvOrigin({
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+      });
     }
     setShowCV(true);
     setIsZoomed(false);
@@ -59,11 +62,11 @@ function About() {
   }
 
   function handleZoomIn() {
-    setZoomLevel(prev => Math.min(prev + 0.25, 3));
+    setZoomLevel((prev) => Math.min(prev + 0.25, 3));
   }
 
   function handleZoomOut() {
-    setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
+    setZoomLevel((prev) => Math.max(prev - 0.25, 0.5));
   }
 
   return (
@@ -72,7 +75,7 @@ function About() {
         <h2>Enchantée, moi c'est Laurène</h2>
         <div className="texte">
           <p>
-            Développeuse front-end et designer, j'aime donner forme aux idées
+            Designer et développeuse front-end, j'aime donner forme aux idées
             jusqu'à ce qu'elles deviennent évidentes, fluides… et visuellement
             impactantes.
             <br />
@@ -102,16 +105,41 @@ function About() {
             </button>
           </AnimationOnScroll>
           {showCV && (
-            <div className={`cv ${isCvClosing ? "closing" : ""}`} ref={cvContainerRef}>
-              <img src={cvDevWeb} alt="cv en pdf" id="cv" ref={cvRef} className={isCvClosing ? "closing" : ""} />
+            <div
+              className={`cv ${isCvClosing ? "closing" : ""}`}
+              ref={cvContainerRef}
+            >
+              <img
+                src={cvDevWeb}
+                alt="cv en pdf"
+                id="cv"
+                ref={cvRef}
+                className={isCvClosing ? "closing" : ""}
+              />
               <div className="cv-buttons">
-                <button className="close-modal" onClick={(e) => { e.stopPropagation(); closeCV(); }}>
+                <button
+                  className="close-modal"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeCV();
+                  }}
+                >
                   X
                 </button>
-                <a href={cvDevWeb} download="CV_Laurene_DevWeb.png" className="download-cv-btn">
+                <a
+                  href={cvDevWeb}
+                  download="CV_Laurene_DevWeb.png"
+                  className="download-cv-btn"
+                >
                   Télécharger
                 </a>
-                <button className="zoom-cv-btn" onClick={(e) => { e.stopPropagation(); toggleZoom(); }}>
+                <button
+                  className="zoom-cv-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleZoom();
+                  }}
+                >
                   Zoomer
                 </button>
               </div>
@@ -120,12 +148,23 @@ function About() {
 
           {isZoomed && (
             <div className="zoom-modal-overlay" onClick={toggleZoom}>
-              <div className="zoom-modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="zoom-close" onClick={toggleZoom}>X</button>
+              <div
+                className="zoom-modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button className="zoom-close" onClick={toggleZoom}>
+                  X
+                </button>
                 <div className="zoom-controls">
-                  <button onClick={handleZoomOut} className="zoom-btn">-</button>
-                  <span className="zoom-level">{Math.round(zoomLevel * 100)}%</span>
-                  <button onClick={handleZoomIn} className="zoom-btn">+</button>
+                  <button onClick={handleZoomOut} className="zoom-btn">
+                    -
+                  </button>
+                  <span className="zoom-level">
+                    {Math.round(zoomLevel * 100)}%
+                  </span>
+                  <button onClick={handleZoomIn} className="zoom-btn">
+                    +
+                  </button>
                 </div>
                 <div className="zoom-image-container">
                   <img

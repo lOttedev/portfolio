@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 import HouseLotte from "../components/Lottehouse";
 import logoSite from "../assets/siteWeb";
@@ -60,25 +63,19 @@ function Portfolio() {
         <div className="descriptionandproject">
           <div className="description">
             <p className="détailprojets">
-              Explorez mes créations en un simple clic sur les logos et
-              laissez-vous inspirer, Vous y découvrirez mes collaborations sur
-              divers sites internets .
+              Explorez mes créations en un simple clic sur les logos. Vous y
+              découvrirez mes collaborations sur divers(es) applications et
+              sites internets.
             </p>
           </div>
 
           <div className="sites">
             {logoSite.map((site) => (
               <div key={site.id} className="swippe">
-                <button
-                  type="button"
-                  onClick={(e) => toggleSite(site, e)}
-                >
+                <button type="button" onClick={(e) => toggleSite(site, e)}>
                   <img src={site.image} alt={site.name} id="swipper" />
                 </button>
-                <div
-                  className="sloggan"
-                  onClick={(e) => toggleSite(site, e)}
-                >
+                <div className="sloggan" onClick={(e) => toggleSite(site, e)}>
                   <p className="text-sloggan"> {site.sloggan} </p>
                 </div>
               </div>
@@ -86,57 +83,69 @@ function Portfolio() {
           </div>
           {selectedSite && (
             <div className={`modal-backdrop ${isClosing ? "closing" : ""}`}>
-              <div className={`modal ${isClosing ? "closing" : ""}`} ref={modalRef}>
+              <div
+                className={`modal ${isClosing ? "closing" : ""}`}
+                ref={modalRef}
+              >
+                <div className="modal-accent-bar" />
                 <button
                   className="close-modal"
                   onClick={closeSite}
+                  aria-label="Fermer"
                 >
-                  X
+                  ×
                 </button>
-                <h2>{selectedSite.name}</h2>
-                <p>{selectedSite.description}</p>
-                <div className="video">
-                  {selectedSite.video.includes('youtube.com') || selectedSite.video.includes('youtu.be') ? (
-                    <iframe
-                      width="560"
-                      height="315"
-                      src={selectedSite.video.replace('youtu.be/', 'www.youtube.com/embed/').replace('watch?v=', 'embed/')}
-                      title={selectedSite.name}
-                      style={{ border: 'none' }}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      id="video"
-                    />
-                  ) : (
-                    <video
-                      autoPlay={true}
-                      src={selectedSite.video}
-                      alt={selectedSite.name}
-                      id="video"
-                    />
-                  )}
-                </div>
-                <div className="lien-site">
-                  {selectedSite.github && (
-                    <a
-                      href={selectedSite.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {" "}
-                      Lien GitHub{" "}
-                    </a>
-                  )}
-                  {selectedSite.url && (
-                    <a
-                      href={selectedSite.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {" "}
-                      Lien du Site{" "}
-                    </a>
-                  )}
+                <div className="modal-body">
+                  <div className="modal-info">
+                    <h2>{selectedSite.name}</h2>
+                    <p>{selectedSite.description}</p>
+                    <div className="lien-site">
+                      {selectedSite.github && (
+                        <a
+                          href={selectedSite.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faGithub} />
+                          Lien GitHub
+                        </a>
+                      )}
+                      {selectedSite.url && (
+                        <a
+                          href={selectedSite.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                          Lien du Site
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  <div className="video">
+                    {selectedSite.video.includes("youtube.com") ||
+                    selectedSite.video.includes("youtu.be") ? (
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={selectedSite.video
+                          .replace("youtu.be/", "www.youtube.com/embed/")
+                          .replace("watch?v=", "embed/")}
+                        title={selectedSite.name}
+                        style={{ border: "none" }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        id="video"
+                      />
+                    ) : (
+                      <video
+                        autoPlay={true}
+                        src={selectedSite.video}
+                        alt={selectedSite.name}
+                        id="video"
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
