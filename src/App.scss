@@ -227,6 +227,7 @@ html {
       position: relative;
       width: 100vw;
       height: 100vh;
+      height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -252,6 +253,7 @@ html {
       img {
         position: absolute;
         height: 100vh;
+        height: 100dvh;
         width: 100%;
         object-fit: cover;
         pointer-events: none;
@@ -360,6 +362,7 @@ html {
     @media screen and (max-width: 820px) {
       .hero {
         height: 60vh;
+        height: 60dvh;
         background-size: cover;
         background-repeat: no-repeat;
         align-self: center;
@@ -367,6 +370,7 @@ html {
 
         img {
           height: 60vh;
+          height: 60dvh;
         }
 
         #stars {
@@ -2038,8 +2042,12 @@ html {
     }
 
     @media screen and (max-width: 600px) {
-      .messagelotte {
+      .contact .messagelotte {
         overflow: hidden;
+
+        img {
+          width: 40%;
+        }
       }
       form {
         width: 65vw;
@@ -2054,6 +2062,9 @@ html {
         }
         .btn {
           width: 40%;
+          font-size: 1.1rem;
+          padding: 0.6rem 0;
+          min-height: 45px;
         }
       }
     }
@@ -2076,6 +2087,9 @@ html {
       .contact form .btn {
         width: 81%;
         margin-left: 0;
+        font-size: 1.15rem;
+        padding: 0.7rem 0;
+        min-height: 48px;
       }
     }
 
