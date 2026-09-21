@@ -1,10 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Skills from "../components/skills";
 import cvlotte from "../assets/images/cvLotte.png";
 import cvDevWeb from "../assets/images/cvdev.png";
-
-import { AnimationOnScroll } from "react-animation-on-scroll";
 
 function About() {
   const [showCV, setShowCV] = useState(false);
@@ -12,8 +10,21 @@ function About() {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [cvOrigin, setCvOrigin] = useState(null);
   const [isCvClosing, setIsCvClosing] = useState(false);
+  const [isOwlVisible, setIsOwlVisible] = useState(false);
   const cvRef = useRef(null);
   const cvContainerRef = useRef(null);
+  const owlRef = useRef(null);
+
+  useEffect(() => {
+    const el = owlRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsOwlVisible(entry.isIntersecting),
+      { rootMargin: "-15% 0px -15% 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   function openCV(event) {
     if (event) {
@@ -94,16 +105,14 @@ function About() {
           </p>
         </div>
         <div className="lottedescription" onClick={toggleCV}>
-          <AnimationOnScroll
-            animateIn="bounceInRight"
-            animateOut="bounceOutRight"
-            className="cvlotte"
-            style={{ animationDuration: "1.5s" }}
+          <div
+            ref={owlRef}
+            className={`cvlotte ${isOwlVisible ? "owl-in" : ""}`}
           >
             <button type="button" onClick={toggleCV} id="buttoncv">
               <img src={cvlotte} alt="cv Lotte" id="cvlotte" />
             </button>
-          </AnimationOnScroll>
+          </div>
           {showCV && (
             <div
               className={`cv ${isCvClosing ? "closing" : ""}`}
