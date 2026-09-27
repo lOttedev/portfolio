@@ -435,7 +435,8 @@ html {
           background: none;
           transform: translateX(120%);
           opacity: 0;
-          transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+          transition:
+            transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
             opacity 0.6s ease;
         }
 
@@ -769,7 +770,10 @@ html {
       line-height: 1;
       cursor: pointer;
       color: var(--main-color);
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      transition:
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.3s;
     }
 
     .modal-close:hover {
@@ -791,7 +795,11 @@ html {
     }
 
     .modal-tag {
-      background-color: color-mix(in srgb, var(--accent-color) 15%, var(--whitetext));
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color) 15%,
+        var(--whitetext)
+      );
       color: var(--main-color);
       border: 1px solid var(--accent-color);
       border-radius: 999px;
@@ -996,6 +1004,91 @@ html {
       transition: transform 0.3s ease;
       transform-origin: center;
       cursor: move;
+    }
+
+    .mockup-zoom-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      animation: fadeIn 0.3s;
+    }
+
+    .mockup-zoom-content {
+      width: min(90vw, 950px);
+      height: 85vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      animation: slideIn 0.3s;
+      touch-action: pan-y;
+    }
+
+    .mockup-zoom-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: var(--blue);
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .mockup-zoom-close:hover {
+      background: var(--main-color);
+    }
+
+    .mockup-zoom-img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .mockup-zoom-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .mockup-zoom-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      &.active {
+        background: var(--whitetext);
+        transform: scale(1.2);
+      }
     }
 
     @media screen and (min-width: 1600px) {
@@ -1358,6 +1451,7 @@ html {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 0.75rem;
         position: fixed;
         top: 0;
         left: 0;
@@ -1371,6 +1465,42 @@ html {
         }
       }
 
+      .site-nav-arrow {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: var(--whitetext);
+        font-size: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1002;
+        transition:
+          background-color 0.3s,
+          transform 0.2s;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+          transform: scale(1.08);
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .modal-backdrop {
+          gap: 0.35rem;
+        }
+
+        .site-nav-arrow {
+          width: 38px;
+          height: 38px;
+          font-size: 1.05rem;
+        }
+      }
+
       .modal {
         --accent-color: var(--blue);
         width: 60%;
@@ -1379,17 +1509,25 @@ html {
         z-index: 1001;
         background-color: var(--whitetext);
         border-radius: 20px;
-        padding: 1rem 2rem 2rem;
+        padding: 1rem 0 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         max-height: 90vh;
-        overflow: hidden auto;
+        overflow: hidden;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         animation: growFromPoint 0.35s ease-out;
 
         &.closing {
           animation: shrinkToPoint 0.3s ease-in forwards;
+        }
+
+        .modal-scroll {
+          flex: 1;
+          min-height: 0;
+          overflow-y: auto;
+          overflow-x: hidden;
+          padding: 0.75rem 1.2rem 2rem 2rem;
         }
 
         .close-modal {
@@ -1410,7 +1548,10 @@ html {
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: background-color 0.3s, color 0.3s, transform 0.3s;
+          transition:
+            background-color 0.3s,
+            color 0.3s,
+            transform 0.3s;
         }
 
         .close-modal:hover {
@@ -1421,7 +1562,7 @@ html {
 
         .modal-body {
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           gap: 1.5rem;
         }
 
@@ -1446,6 +1587,7 @@ html {
           display: flex;
           justify-content: center;
           align-items: center;
+          margin-top: 2.75rem;
 
           video#video,
           iframe#video {
@@ -1478,10 +1620,214 @@ html {
             justify-content: center;
             align-items: center;
             gap: 0.5rem;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            transition:
+              background-color 0.3s,
+              color 0.3s,
+              transform 0.3s;
           }
 
           a:hover {
+            color: var(--yellow);
+            background-color: var(--main-color);
+            transform: scale(1.1);
+          }
+        }
+
+        .modal-elements {
+          margin-top: 2rem;
+          border-top: 1px solid rgba(4, 37, 120, 0.15);
+          padding-top: 1.5rem;
+        }
+
+        .elements-header {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 2rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .modal-colors {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+        }
+
+        .color-swatch {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.4rem;
+        }
+
+        .color-dot {
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background-color: color-mix(
+            in srgb,
+            var(--main-color) 12%,
+            var(--whitetext)
+          );
+          border: 2px solid rgba(4, 37, 120, 0.15);
+        }
+
+        .color-label {
+          font-size: 0.85rem;
+          color: var(--main-color);
+        }
+
+        .elements-heading {
+          font-size: 2.1rem;
+          color: var(--accent-color);
+          margin: 0;
+        }
+
+        .mockup-box {
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          overflow: hidden;
+
+          span {
+            font-size: 0.8rem;
+            color: color-mix(in srgb, var(--main-color) 55%, var(--whitetext));
+            text-align: center;
+            padding: 0.5rem;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: left center;
+          }
+        }
+
+        .elements-split {
+          display: flex;
+          gap: 1.5rem;
+          align-items: flex-start;
+        }
+
+        .elements-col {
+          flex: 1 1 0;
+          min-width: 0;
+
+          &.full {
+            flex: 1 1 100%;
+            max-width: 100%;
+          }
+        }
+
+        .mockups-row {
+          flex: 2.2 1 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          gap: 0.5rem;
+
+          .mockup-box {
+            width: auto;
+            height: 230px;
+            flex: 0 0 auto;
+            border: none;
+            background: none;
+            padding: 0;
+            font: inherit;
+            cursor: zoom-in;
+            transition:
+              transform 0.2s,
+              box-shadow 0.2s;
+
+            &:hover,
+            &:focus-visible {
+              transform: scale(1.02);
+              box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            }
+
+            span {
+              width: 100%;
+              height: 100%;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            img {
+              width: auto;
+              height: 100%;
+              object-fit: contain;
+              object-position: center;
+            }
+          }
+        }
+
+        .assets-col {
+          flex: 1 1 0;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .assets-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+          row-gap: 1rem;
+          column-gap: 0.4rem;
+        }
+
+        .mockup-asset {
+          aspect-ratio: 2 / 1.8;
+          padding: 0.4rem;
+          box-sizing: border-box;
+          border: none;
+          background: none;
+          font: inherit;
+          cursor: zoom-in;
+          overflow: visible;
+
+          img {
+            object-fit: contain;
+            transition:
+              transform 0.2s,
+              filter 0.2s;
+          }
+
+          &:hover img,
+          &:focus-visible img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.18));
+          }
+        }
+
+        .extra-description {
+          color: var(--main-color);
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+
+        .figma-link {
+          align-self: flex-start;
+          font-size: 1em;
+          text-decoration: none;
+          font-weight: 700;
+          color: var(--red);
+          background-color: var(--yellow);
+          height: 2rem;
+          padding: 0 1.2rem;
+          border-radius: 999px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition:
+            background-color 0.3s,
+            color 0.3s,
+            transform 0.3s;
+
+          &:hover {
             color: var(--yellow);
             background-color: var(--main-color);
             transform: scale(1.1);
@@ -1729,6 +2075,35 @@ html {
 
           .modal-body {
             flex-direction: column;
+          }
+
+          .video {
+            margin-top: 0;
+          }
+
+          .elements-header {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+
+          .elements-split {
+            flex-direction: column;
+          }
+
+          .elements-col {
+            flex-basis: auto;
+            max-width: 100%;
+          }
+
+          .mockups-row {
+            .mockup-box {
+              height: 160px;
+            }
+          }
+
+          .assets-grid {
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
           }
         }
       }
