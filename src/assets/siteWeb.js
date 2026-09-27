@@ -90,9 +90,9 @@ const logoSite = [
     github: "https://github.com/lOttedev/Sleepy_Dev_Squad.git",
     url: null,
     colors: [
-      { hex: "#5881A6", name: "Bleu King" },
+      { hex: "#5881A6", name: "Bleu Roi" },
       { hex: "#BFA27E", name: "Parchemin" },
-      { hex: "#F20530", name: "Rouge Royale" },
+      { hex: "#F20530", name: "Rouge Royal" },
     ],
     otherAssets: [
       crucheVin,
