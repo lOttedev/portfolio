@@ -29,6 +29,35 @@ import marchandises from "./images/Marchandises.png";
 import chaisePorteuse from "./images/Chaise-porteuse.png";
 import cocher from "./images/Cocher.png";
 import logoSds from "./images/logo-sds.png";
+import apprentis from "./images/Apprentis.png";
+import chef from "./images/chef.png";
+import curseur from "./images/curseur.png";
+import logoChocNClic from "./images/logo-choc-n-clic.svg";
+import patissier from "./images/patissier.png";
+import upgrade1 from "./images/upgrade-1.png";
+import upgrade2 from "./images/Upgrade-2.png";
+import upgrade3 from "./images/uppgrade-3.png";
+import rouleauPatisserie from "./images/Rouleau-a-patisserie.png";
+import spatule from "./images/spatule.png";
+import toque from "./images/toque.png";
+import apprentisUpgrade from "./images/apprentis-upgrade.png";
+import chefUpgrade from "./images/chef-upgrade.png";
+import patissierUpgrade from "./images/patissier-upgrade.png";
+import party from "./images/party.png";
+import middleWeather from "./images/middleWeather.png";
+import happymood from "./images/happymood.png";
+import food from "./images/Food.png";
+import date from "./images/date.png";
+import beers from "./images/beers.png";
+import badWeather from "./images/badWeather.png";
+import atHome from "./images/atHome.png";
+import afterWork from "./images/afterWork.png";
+import questuboisDesktop1 from "./images/Questubois_Desktop1.png";
+import questuboisDesktop5 from "./images/Questubois_Desktop5.png";
+import questuboisDesktop8 from "./images/Questubois_Desktop8.png";
+import questuboisIphoneSe1 from "./images/Questubois_iPhone SE1.png";
+import questuboisIphone3 from "./images/Questubois_iPhone3.png";
+import questuboisIphone7 from "./images/Questubois_iPhone7.png";
 
 const logoSite = [
   {
@@ -119,6 +148,32 @@ const logoSite = [
       "Premier projet réalisé en groupe, pensé et conçu en l'espace de deux semaines et très largement inspiré du jeu Cookie Clicker. En plus de ma contribution au développement, j'ai eu le plaisir de donner vie aux illustrations qui parsèment ce jeu. N'hésitez pas à vous plonger dans cette expérience ludique et divertissante !",
     github: "https://github.com/lOttedev/projet-choc-n-clic.git",
     url: "https://cedricsia.github.io/",
+    colors: [
+      { hex: "#2e294e", name: "Violette" },
+      { hex: "#f5a72d", name: "Beurre Doré" },
+      { hex: "#a66203", name: "Pâte Cuite" },
+    ],
+    desktopMockups: [
+      logoChocNClic,
+      choco,
+      // curseur,
+      chef,
+      patissier,
+      apprentis,
+      rouleauPatisserie,
+      spatule,
+      toque,
+    ],
+    otherAssets: [
+      apprentisUpgrade,
+      chefUpgrade,
+      patissierUpgrade,
+      upgrade1,
+      upgrade2,
+      upgrade3,
+    ],
+    extraDescription:
+      "Je me suis occupée de l'UI/UX ainsi que de l'ensemble du code CSS et du responsive. J'ai également réalisé toutes les illustrations à la tablette graphique sous Photoshop. Le fichier Figma des maquettes ayant été supprimé par le propriétaire principal du projet, je n'ai malheureusement pas d'image ni de lien à présenter pour cette partie.",
   },
 
   {
@@ -131,6 +186,33 @@ const logoSite = [
       "Questubois incarne le fruit d'une collaboration collective au sein d'une plateforme dédiée à l'univers de la bière. Cette création englobe divers jeux captivants : l'un d'entre eux offre la possibilité de sélectionner sa bière idéale en personnalisant un profil, dans une démarche évoquant celle de Tinder. L'autre fonctionnalité, permet de choisir une ou plusieurs variétés de bières en harmonie avec ses choix culinaires.",
     github: null,
     url: null,
+    colors: [
+      { hex: "#26160B", name: "Wood" },
+      { hex: "#88AD4F", name: "Hop" },
+      { hex: "#F2B705", name: "Ale" },
+    ],
+    otherAssets: [
+      // party,
+      middleWeather,
+      happymood,
+      food,
+      date,
+      beers,
+      // badWeather,
+      // atHome,
+      afterWork,
+    ],
+    desktopMockups: [
+      questuboisDesktop1,
+      questuboisIphoneSe1,
+      questuboisDesktop5,
+      questuboisIphone3,
+      questuboisDesktop8,
+      questuboisIphone7,
+    ],
+    // mobileMockups: [questuboisIphoneSe1, questuboisIphone3, questuboisIphone7],
+    extraDescription:
+      "Sur ce projet, j'ai réalisé l'ensemble des illustrations ainsi qu'une partie de l'UI/UX, la mise en page et le responsive. J'ai également développé la fonctionnalité (front et back) qui aide l'utilisateur à choisir sa bière selon son humeur, la météo et les circonstances, en cliquant simplement sur les images correspondantes. Nous avons connecté une API disposant d'une très large bibliothèque de bières.",
   },
 ];
 
