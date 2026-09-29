@@ -4,10 +4,12 @@ import Skills from "../components/skills";
 import cvlotte from "../assets/images/cvLotte.png";
 import cvDevWeb from "../assets/images/cvdev.png";
 
+const ZOOM_FACTOR = 2.5;
+const LENS_SIZE = 320;
+
 function About() {
   const [showCV, setShowCV] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
+  const [magnifier, setMagnifier] = useState({ show: false });
   const [cvOrigin, setCvOrigin] = useState(null);
   const [isCvClosing, setIsCvClosing] = useState(false);
   const [isOwlVisible, setIsOwlVisible] = useState(false);
@@ -35,14 +37,12 @@ function About() {
       });
     }
     setShowCV(true);
-    setIsZoomed(false);
-    setZoomLevel(1);
+    setMagnifier({ show: false });
   }
 
   function closeCV() {
     setIsCvClosing(true);
-    setIsZoomed(false);
-    setZoomLevel(1);
+    setMagnifier({ show: false });
     setTimeout(() => {
       setShowCV(false);
       setIsCvClosing(false);
@@ -67,17 +67,27 @@ function About() {
     }
   }, [showCV, cvOrigin]);
 
-  function toggleZoom() {
-    setIsZoomed(!isZoomed);
-    setZoomLevel(1);
+  function handleCvMouseMove(e) {
+    const rect = cvRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+      setMagnifier((m) => ({ ...m, show: false }));
+      return;
+    }
+    setMagnifier({
+      show: true,
+      left: e.clientX,
+      top: e.clientY,
+      bgWidth: rect.width * ZOOM_FACTOR,
+      bgHeight: rect.height * ZOOM_FACTOR,
+      bgX: -(x * ZOOM_FACTOR - LENS_SIZE / 2),
+      bgY: -(y * ZOOM_FACTOR - LENS_SIZE / 2),
+    });
   }
 
-  function handleZoomIn() {
-    setZoomLevel((prev) => Math.min(prev + 0.25, 3));
-  }
-
-  function handleZoomOut() {
-    setZoomLevel((prev) => Math.max(prev - 0.25, 0.5));
+  function handleCvMouseLeave() {
+    setMagnifier((m) => ({ ...m, show: false }));
   }
 
   return (
@@ -124,6 +134,11 @@ function About() {
                 id="cv"
                 ref={cvRef}
                 className={isCvClosing ? "closing" : ""}
+                onMouseMove={(e) => {
+                  e.stopPropagation();
+                  handleCvMouseMove(e);
+                }}
+                onMouseLeave={handleCvMouseLeave}
               />
               <div className="cv-buttons">
                 <button
@@ -142,49 +157,21 @@ function About() {
                 >
                   Télécharger
                 </a>
-                <button
-                  className="zoom-cv-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleZoom();
-                  }}
-                >
-                  Zoomer
-                </button>
               </div>
             </div>
           )}
 
-          {isZoomed && (
-            <div className="zoom-modal-overlay" onClick={toggleZoom}>
-              <div
-                className="zoom-modal-content"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button className="zoom-close" onClick={toggleZoom}>
-                  X
-                </button>
-                <div className="zoom-controls">
-                  <button onClick={handleZoomOut} className="zoom-btn">
-                    -
-                  </button>
-                  <span className="zoom-level">
-                    {Math.round(zoomLevel * 100)}%
-                  </span>
-                  <button onClick={handleZoomIn} className="zoom-btn">
-                    +
-                  </button>
-                </div>
-                <div className="zoom-image-container">
-                  <img
-                    src={cvDevWeb}
-                    alt="CV agrandi"
-                    style={{ transform: `scale(${zoomLevel})` }}
-                    className="zoomed-cv"
-                  />
-                </div>
-              </div>
-            </div>
+          {magnifier.show && (
+            <div
+              className="magnifier-lens"
+              style={{
+                left: magnifier.left,
+                top: magnifier.top,
+                backgroundImage: `url(${cvDevWeb})`,
+                backgroundSize: `${magnifier.bgWidth}px ${magnifier.bgHeight}px`,
+                backgroundPosition: `${magnifier.bgX}px ${magnifier.bgY}px`,
+              }}
+            />
           )}
         </div>
 
