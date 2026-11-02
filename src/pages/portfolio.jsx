@@ -16,7 +16,9 @@ function Portfolio() {
   const [isClosing, setIsClosing] = useState(false);
   const [zoomedMockupIndex, setZoomedMockupIndex] = useState(null);
   const modalRef = useRef(null);
+  const modalScrollRef = useRef(null);
   const swipeStartXRef = useRef(null);
+  const siteSwipeStartXRef = useRef(null);
 
   const mockupList = selectedSite
     ? [
@@ -99,6 +101,22 @@ function Portfolio() {
     );
   }
 
+  function handleSiteSwipeStart(e) {
+    siteSwipeStartXRef.current = e.touches[0].clientX;
+  }
+
+  function handleSiteSwipeEnd(e) {
+    if (siteSwipeStartXRef.current === null) return;
+    const delta = e.changedTouches[0].clientX - siteSwipeStartXRef.current;
+    siteSwipeStartXRef.current = null;
+    if (Math.abs(delta) < 60) return;
+    if (delta < 0) {
+      showNextSite();
+    } else {
+      showPrevSite();
+    }
+  }
+
   function closeSite() {
     setIsClosing(true);
     setTimeout(() => {
@@ -115,6 +133,12 @@ function Portfolio() {
       el.style.transformOrigin = `${origin.x - boxLeft}px ${origin.y - boxTop}px`;
     }
   }, [selectedSite, origin]);
+
+  useLayoutEffect(() => {
+    if (modalScrollRef.current) {
+      modalScrollRef.current.scrollTop = 0;
+    }
+  }, [selectedSite]);
 
   useEffect(() => {
     const setVideoAutoplay = () => {
@@ -176,6 +200,8 @@ function Portfolio() {
               <div
                 className={`modal ${isClosing ? "closing" : ""}`}
                 ref={modalRef}
+                onTouchStart={handleSiteSwipeStart}
+                onTouchEnd={handleSiteSwipeEnd}
               >
                 <div className="modal-accent-bar" />
                 <button
@@ -185,7 +211,7 @@ function Portfolio() {
                 >
                   ×
                 </button>
-                <div className="modal-scroll">
+                <div className="modal-scroll" ref={modalScrollRef}>
                   <div className="modal-body">
                     <div className="modal-info">
                       <h2>{selectedSite.name}</h2>
@@ -394,6 +420,25 @@ function Portfolio() {
                 >
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
+              )}
+
+              {logoSite.length > 1 && (
+                <div className="site-nav-dots">
+                  {logoSite.map((site) => (
+                    <button
+                      key={site.id}
+                      type="button"
+                      className={`site-nav-dot${
+                        site.id === selectedSite.id ? " active" : ""
+                      }`}
+                      aria-label={site.name}
+                      onClick={() => {
+                        setZoomedMockupIndex(null);
+                        setSelectedSite(site);
+                      }}
+                    />
+                  ))}
+                </div>
               )}
             </div>
           )}
