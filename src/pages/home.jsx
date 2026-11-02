@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import etoiles from "../assets/images/etoiles.png";
 import logolotte from "../assets/images/Logo-lotte-hero.png";
+import logolotteEn from "../assets/images/Logo-lotte-hero-EN.png";
 import thirdplan from "../assets/images/thirdplan.png";
 import secondplan from "../assets/images/2ndplan.png";
 import firstplan from "../assets/images/1erplan.png";
@@ -10,8 +11,11 @@ import Portfolio from "./portfolio";
 import About from "./about";
 import FloatingDots from "../components/FloatingDots";
 import FloatingDots2 from "../components/FloatingDots2";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function Home() {
+  const { lang } = useLanguage();
+
   useEffect(() => {
     const stars = document.getElementById("stars");
     const logolotte = document.getElementById("logolotte");
@@ -53,7 +57,11 @@ function Home() {
         <img src={etoiles} alt="Stars" id="stars" />
         <img src={thirdplan} alt="Third Plan" id="thirdplan" />
         <FloatingDots count={15} />
-        <img src={logolotte} alt="Logo Lotte" id="logolotte" />
+        <img
+          src={lang === "en" ? logolotteEn : logolotte}
+          alt="Logo Lotte"
+          id="logolotte"
+        />
         <img src={secondplan} alt="Second Plan" id="secondplan" />
         <img src={firstplan} alt="First Plan" id="premierplan" />
         <FloatingDots2 count={10} />

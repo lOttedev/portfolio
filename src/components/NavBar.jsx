@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import logo from "../assets/images/chouettelotte.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useLanguage } from "../i18n/LanguageContext";
+import LangSwitch from "./LangSwitch";
 
 function NavBar() {
   const [menuBurger, setMenuBurger] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { t } = useLanguage();
 
   function toggleMenu() {
     setMenuBurger(!menuBurger);
@@ -41,17 +44,20 @@ function NavBar() {
         <ul className="menu">
           <li>
             <a href="#home" className={activeSection === "home" ? "active" : ""}>
-              Home
+              {t("navHome")}
             </a>
           </li>
           <li>
-            <a href="#about" className={activeSection === "about" ? "active" : ""}>Mon parcours</a>
+            <a href="#about" className={activeSection === "about" ? "active" : ""}>{t("navAbout")}</a>
           </li>
           <li>
-            <a href="#portfolio" className={activeSection === "portfolio" ? "active" : ""}>Mes projets</a>
+            <a href="#portfolio" className={activeSection === "portfolio" ? "active" : ""}>{t("navPortfolio")}</a>
           </li>
           <li>
-            <a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a>
+            <a href="#contact" className={activeSection === "contact" ? "active" : ""}>{t("navContact")}</a>
+          </li>
+          <li>
+            <LangSwitch />
           </li>
         </ul>
 
@@ -61,20 +67,31 @@ function NavBar() {
         onClick={toggleMenu}
       />
       {menuBurger && (
-        <ul className="menuBurger">
+        <div className="menu-backdrop" onClick={toggleMenu} />
+      )}
+      {menuBurger && (
+        <ul
+          className="menuBurger"
+          onClick={(e) => {
+            if (e.target.closest("a")) setMenuBurger(false);
+          }}
+        >
           <li>
             <a href="#home" className={activeSection === "home" ? "active" : ""}>
-              Home
+              {t("navHome")}
             </a>
           </li>
           <li>
-            <a href="#about" className={activeSection === "about" ? "active" : ""}>Mon parcours</a>
+            <a href="#about" className={activeSection === "about" ? "active" : ""}>{t("navAbout")}</a>
           </li>
           <li>
-            <a href="#portfolio" className={activeSection === "portfolio" ? "active" : ""}>Mes projets</a>
+            <a href="#portfolio" className={activeSection === "portfolio" ? "active" : ""}>{t("navPortfolio")}</a>
           </li>
           <li>
-            <a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a>
+            <a href="#contact" className={activeSection === "contact" ? "active" : ""}>{t("navContact")}</a>
+          </li>
+          <li>
+            <LangSwitch />
           </li>
         </ul>
       )}

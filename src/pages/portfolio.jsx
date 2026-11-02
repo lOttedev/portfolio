@@ -9,8 +9,10 @@ import {
 
 import HouseLotte from "../components/Lottehouse";
 import logoSite from "../assets/siteWeb";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function Portfolio() {
+  const { t } = useLanguage();
   const [selectedSite, setSelectedSite] = useState(null);
   const [origin, setOrigin] = useState(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -24,15 +26,15 @@ function Portfolio() {
     ? [
         ...(selectedSite.desktopMockups || []).map((src, i) => ({
           src,
-          alt: `Maquette ordinateur ${i + 1}`,
+          alt: `${t("desktopMockup")} ${i + 1}`,
         })),
         ...(selectedSite.mobileMockups || []).map((src, i) => ({
           src,
-          alt: `Maquette mobile ${i + 1}`,
+          alt: `${t("mobileMockup")} ${i + 1}`,
         })),
         ...(selectedSite.otherAssets || []).map((src, i) => ({
           src,
-          alt: `Élément graphique ${i + 1}`,
+          alt: `${t("graphicElement")} ${i + 1}`,
         })),
       ]
     : [];
@@ -159,7 +161,7 @@ function Portfolio() {
 
   return (
     <section className="portfolio" id="portfolio">
-      <h2> Ici mes créations et collaborations </h2>
+      <h2>{t("portfolioTitle")}</h2>
 
       <div className="portfoliocontainer">
         <div className="illustrations">
@@ -168,9 +170,7 @@ function Portfolio() {
         <div className="descriptionandproject">
           <div className="description">
             <p className="détailprojets">
-              Explorez mes créations en un simple clic sur les logos. Vous y
-              découvrirez mes collaborations sur divers(es) applications et
-              sites internets.
+              {t("portfolioIntro")}
             </p>
           </div>
 
@@ -181,7 +181,7 @@ function Portfolio() {
                   <img src={site.image} alt={site.name} id="swipper" />
                 </button>
                 <div className="sloggan" onClick={(e) => toggleSite(site, e)}>
-                  <p className="text-sloggan"> {site.sloggan} </p>
+                  <p className="text-sloggan"> {t(site.sloggan)} </p>
                 </div>
               </div>
             ))}
@@ -192,7 +192,7 @@ function Portfolio() {
                 <button
                   className="site-nav-arrow site-nav-prev"
                   onClick={showPrevSite}
-                  aria-label="Réalisation précédente"
+                  aria-label={t("prevProject")}
                 >
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
@@ -207,7 +207,7 @@ function Portfolio() {
                 <button
                   className="close-modal"
                   onClick={closeSite}
-                  aria-label="Fermer"
+                  aria-label={t("close")}
                 >
                   ×
                 </button>
@@ -215,7 +215,7 @@ function Portfolio() {
                   <div className="modal-body">
                     <div className="modal-info">
                       <h2>{selectedSite.name}</h2>
-                      <p>{selectedSite.description}</p>
+                      <p>{t(selectedSite.description)}</p>
                       <div className="lien-site">
                         {selectedSite.github && (
                           <a
@@ -224,7 +224,7 @@ function Portfolio() {
                             rel="noopener noreferrer"
                           >
                             <FontAwesomeIcon icon={faGithub} />
-                            Lien GitHub
+                            {t("githubLink")}
                           </a>
                         )}
                         {selectedSite.url && (
@@ -234,7 +234,7 @@ function Portfolio() {
                             rel="noopener noreferrer"
                           >
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                            Lien du Site
+                            {t("siteLink")}
                           </a>
                         )}
                       </div>
@@ -296,7 +296,7 @@ function Portfolio() {
                                     }
                                   />
                                   <span className="color-label">
-                                    {color.name || `Couleur ${i + 1}`}
+                                    {color.name ? t(color.name) : `${t("color")} ${i + 1}`}
                                   </span>
                                 </div>
                               ))}
@@ -304,7 +304,7 @@ function Portfolio() {
                           )}
 
                           <h3 className="elements-heading">
-                            Direction artistique
+                            {t("artDirection")}
                           </h3>
                         </div>
 
@@ -326,7 +326,7 @@ function Portfolio() {
                                     >
                                       <img
                                         src={src}
-                                        alt={`Maquette ordinateur ${i + 1}`}
+                                        alt={`${t("desktopMockup")} ${i + 1}`}
                                       />
                                     </button>
                                   ))}
@@ -346,7 +346,7 @@ function Portfolio() {
                                     >
                                       <img
                                         src={src}
-                                        alt={`Maquette mobile ${i + 1}`}
+                                        alt={`${t("mobileMockup")} ${i + 1}`}
                                       />
                                     </button>
                                   ))}
@@ -378,7 +378,7 @@ function Portfolio() {
                                       >
                                         <img
                                           src={src}
-                                          alt={`Élément graphique ${i + 1}`}
+                                          alt={`${t("graphicElement")} ${i + 1}`}
                                         />
                                       </button>
                                     ))}
@@ -387,7 +387,7 @@ function Portfolio() {
 
                                 {hasExtraDescription && (
                                   <p className="extra-description">
-                                    {selectedSite.extraDescription}
+                                    {t(selectedSite.extraDescription)}
                                   </p>
                                 )}
 
@@ -399,7 +399,7 @@ function Portfolio() {
                                     className="figma-link"
                                   >
                                     <FontAwesomeIcon icon={faFigma} />
-                                    Voir sur Figma
+                                    {t("viewFigma")}
                                   </a>
                                 )}
                               </div>
@@ -416,7 +416,7 @@ function Portfolio() {
                 <button
                   className="site-nav-arrow site-nav-next"
                   onClick={showNextSite}
-                  aria-label="Réalisation suivante"
+                  aria-label={t("nextProject")}
                 >
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
@@ -455,7 +455,7 @@ function Portfolio() {
                 <button
                   className="mockup-zoom-close"
                   onClick={() => setZoomedMockupIndex(null)}
-                  aria-label="Fermer"
+                  aria-label={t("close")}
                 >
                   ×
                 </button>

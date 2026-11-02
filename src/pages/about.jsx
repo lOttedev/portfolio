@@ -3,11 +3,13 @@ import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Skills from "../components/skills";
 import cvlotte from "../assets/images/cvLotte.png";
 import cvDevWeb from "../assets/images/cvdev.png";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const ZOOM_FACTOR = 2.5;
 const LENS_SIZE = 320;
 
 function About() {
+  const { t } = useLanguage();
   const [showCV, setShowCV] = useState(false);
   const [magnifier, setMagnifier] = useState({ show: false });
   const [cvOrigin, setCvOrigin] = useState(null);
@@ -93,25 +95,16 @@ function About() {
   return (
     <div>
       <section className="sec" id="about">
-        <h2>Enchantée, moi c'est Laurène</h2>
+        <h2>{t("aboutTitle")}</h2>
         <div className="texte">
           <p>
-            Designer et développeuse front-end, j'aime donner forme aux idées
-            jusqu'à ce qu'elles deviennent évidentes, fluides… et visuellement
-            impactantes.
+            {t("aboutP1")}
             <br />
-            Issue d'un master en design couleur et matière, j'ai bâti un univers
-            où se rencontrent design graphique, illustration, motion design et
-            développement web. J'aime créer des interfaces qui respirent,
-            raconter des histoires en images, et glisser dans mes projets des
-            détails graphiques qui font toute la différence.
+            {t("aboutP2")}
             <br />
-            Mon approche : un mélange assumé de créativité, de logique et
-            d'expérimentation. Mon objectif : créer des expériences en ligne
-            uniques, sensibles et cohérentes avec votre identité.
+            {t("aboutP3")}
             <br />
-            Vous avez un projet à faire exister ? Parlons-en. Construisons
-            ensemble quelque chose de véritablement singulier.{" "}
+            {t("aboutP4")}
           </p>
         </div>
         <div className="lottedescription" onClick={toggleCV}>
@@ -130,7 +123,7 @@ function About() {
             >
               <img
                 src={cvDevWeb}
-                alt="cv en pdf"
+                alt={t("cvAlt")}
                 id="cv"
                 ref={cvRef}
                 className={isCvClosing ? "closing" : ""}
@@ -155,7 +148,7 @@ function About() {
                   download="CV_Laurene_DevWeb.png"
                   className="download-cv-btn"
                 >
-                  Télécharger
+                  {t("download")}
                 </a>
               </div>
             </div>
@@ -176,7 +169,7 @@ function About() {
         </div>
 
         <div className="skills-eggs">
-          <h2> ... Mes outils de travail</h2>
+          <h2>{t("skillsTitle")}</h2>
           <Skills />
         </div>
       </section>

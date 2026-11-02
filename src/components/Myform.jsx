@@ -5,9 +5,10 @@
 function MyForm() {
   const {register, formState : { errors }} = useForm();
  // const [formData, setFormData] = useState({});
+  const { t } = useLanguage();
   const [state, handleSubmit] = useForm("mbjvowlv");
   if (state.succeeded) {
-      return <p>Thanks for joining!</p>;
+      return <p>{t("formThanks")}</p>;
   }
   
   //const handleInputChange = (event) => {
@@ -87,17 +88,19 @@ function MyForm() {
 
 export default MyForm;*/
 import { useForm, ValidationError } from '@formspree/react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 function MyForm() {
+  const { t } = useLanguage();
   const [state, handleSubmit] = useForm("mbjvowlv");
   if (state.succeeded) {
-      return <p>Thanks for joining!</p>;
+      return <p>{t("formThanks")}</p>;
   }
   return (
       <form onSubmit={handleSubmit}>
 
       <label htmlFor="fullname">
-        Nom et Prénom
+        {t("formName")}
         <br />
         <input type="text" id="fullname" name="fullname" 
         />
@@ -134,7 +137,7 @@ function MyForm() {
         errors={state.errors}
       />
       <button className="btn" type="submit" disabled={state.submitting}>
-        Submit
+        {t("formSubmit")}
       </button>
     </form>
   );

@@ -65,15 +65,20 @@ const logoSite = [
     image: eatingnamnam,
     name: "Eating Nam Nam",
     video: "https://youtu.be/Ocn7S4m3Qr4",
-    sloggan: "Créez, partagez, dégustez l'essence de la cuisine.",
-    description:
-      "Eating Nam Nam est un site de cuisine réalisé en groupe suite à une commande d'un client. Si vous êtes connecté, vous pouvez, créer une recette, y ajouter et noter des recettes d'autres utilisateurs. Vous avez aussi un accès aux apports nutritionnels pour chaque recette. Bon appétit !",
+    sloggan: {
+      fr: "Créez, partagez, dégustez l'essence de la cuisine.",
+      en: "Create, share, savour the essence of cooking.",
+    },
+    description: {
+      fr: "Eating Nam Nam est un site de cuisine réalisé en groupe suite à une commande d'un client. Si vous êtes connecté, vous pouvez, créer une recette, y ajouter et noter des recettes d'autres utilisateurs. Vous avez aussi un accès aux apports nutritionnels pour chaque recette. Bon appétit !",
+      en: "Eating Nam Nam is a cooking website built as a team for a client. Once logged in, you can create your own recipes, and save and rate recipes from other users. You can also see the nutritional values of every recipe. Enjoy your meal!",
+    },
     github: null,
     url: null,
     colors: [
-      { hex: "#D56C06", name: "Clémentine" },
-      { hex: "#ECE8DA", name: "Porcelaine" },
-      { hex: "#97BF0D", name: "Pomme" },
+      { hex: "#D56C06", name: { fr: "Clémentine", en: "Clementine" } },
+      { hex: "#ECE8DA", name: { fr: "Porcelaine", en: "Porcelain" } },
+      { hex: "#97BF0D", name: { fr: "Pomme", en: "Apple" } },
     ],
     otherAssets: [badgeEtoile, badgeDifficulte, commentaire, userProfil],
     desktopMockups: [
@@ -91,8 +96,10 @@ const logoSite = [
       mesRecetteMobile,
       // lesRecettesMobile,
     ],
-    extraDescription:
-      "Sur ce projet, j'ai conçu l'UI/UX des maquettes sur Figma et illustré les badges, à partir des couleurs et du logo qui nous avaient été imposés. Côté développement, j'ai implémenté le système de favoris (front et back) ainsi que l'intégration et le responsive de plusieurs pages.",
+    extraDescription: {
+      fr: "Sur ce projet, j'ai conçu l'UI/UX des maquettes sur Figma et illustré les badges, à partir des couleurs et du logo qui nous avaient été imposés. Côté développement, j'ai implémenté le système de favoris (front et back) ainsi que l'intégration et le responsive de plusieurs pages.",
+      en: "On this project, I designed the UI/UX mockups in Figma and illustrated the badges, based on the colours and logo we were given. On the development side, I built the favourites system (front and back end) and handled the integration and responsive layout of several pages.",
+    },
     figma:
       "https://www.figma.com/design/rK1VV85QqchhhBKnxZLy7V/Eating-Nam-Nam?node-id=10-10&t=znJPxjLS42JhobF7-1",
   },
@@ -101,10 +108,14 @@ const logoSite = [
     image: elika,
     name: "Elika Team",
     video: "https://youtu.be/zqPZkCRW8a0",
-    sloggan:
-      "Création d'applications de solution linguistique Défense Sécurité et Sûreté",
-    description:
-      "Mon expérience au sein d'Elika Team m'a permis de travailler React Native et la suite Adobe pour concevoir des applications destinées au secteur de la défense. J'y ai occupé un rôle hybride, à la fois centré sur le développement front-end et sur la dimension design des interfaces, graphisme et illustrations. Malheureusement, en raison du caractère confidentiel des projets, je ne peux partager aucun visuel ici — ces travaux étant classés secret-défense.",
+    sloggan: {
+      fr: "Création d'applications de solution linguistique Défense Sécurité et Sûreté",
+      en: "Building language solution apps for Defence, Security and Safety",
+    },
+    description: {
+      fr: "Mon expérience au sein d'Elika Team m'a permis de travailler React Native et la suite Adobe pour concevoir des applications destinées au secteur de la défense. J'y ai occupé un rôle hybride, à la fois centré sur le développement front-end et sur la dimension design des interfaces, graphisme et illustrations. Malheureusement, en raison du caractère confidentiel des projets, je ne peux partager aucun visuel ici — ces travaux étant classés secret-défense.",
+      en: "At Elika Team, I worked with React Native and the Adobe suite to design applications for the defence sector. I held a hybrid role, covering both front-end development and the design side of the interfaces, graphics and illustrations. Unfortunately, because these projects are confidential, I cannot share any visuals here — the work is classified.",
+    },
     github: null,
     url: "https://elikateam.com/",
   },
@@ -113,15 +124,20 @@ const logoSite = [
     image: sds,
     name: "Sleepy Dev Squad",
     video: "https://youtu.be/RiNSFKO769M",
-    sloggan: "Le Uber du Moyen-Age, viens y querir ton char",
-    description:
-      "Le site Tuum Vehiculum a vu le jour grâce à une collaboration étroite au sein de mon équipe, les Sleepy Dev Squad, lors d'un hackathon de moins de 48 heures. La thématique qui nous a été attribuée était : la conception d'un site qui aurait eu une utilité dans une ère où internet n'existait pas encore. Ainsi, nous avons plongé dans les méandres du Moyen Âge pour concevoir une plateforme de location de véhicules, avec ou sans cocher, dédiée à faciliter divers trajets. Cette idée novatrice s'inspire bien évidemment du concept de Uber, tout en étant ancrée dans une époque révolue.",
+    sloggan: {
+      fr: "Le Uber du Moyen-Age, viens y querir ton char",
+      en: "The Uber of the Middle Ages, come and summon thy chariot",
+    },
+    description: {
+      fr: "Le site Tuum Vehiculum a vu le jour grâce à une collaboration étroite au sein de mon équipe, les Sleepy Dev Squad, lors d'un hackathon de moins de 48 heures. La thématique qui nous a été attribuée était : la conception d'un site qui aurait eu une utilité dans une ère où internet n'existait pas encore. Ainsi, nous avons plongé dans les méandres du Moyen Âge pour concevoir une plateforme de location de véhicules, avec ou sans cocher, dédiée à faciliter divers trajets. Cette idée novatrice s'inspire bien évidemment du concept de Uber, tout en étant ancrée dans une époque révolue.",
+      en: "Tuum Vehiculum was born from close teamwork within my team, the Sleepy Dev Squad, during a hackathon of less than 48 hours. Our theme was to design a website that would have been useful in an era before the internet existed. So we dove into the Middle Ages to create a vehicle rental platform, with or without a coachman, to make all kinds of journeys easier. The idea is of course inspired by Uber, while being rooted in a bygone age.",
+    },
     github: "https://github.com/lOttedev/Sleepy_Dev_Squad.git",
     url: null,
     colors: [
-      { hex: "#5881A6", name: "Bleu Roi" },
-      { hex: "#BFA27E", name: "Parchemin" },
-      { hex: "#F20530", name: "Rouge Royal" },
+      { hex: "#5881A6", name: { fr: "Bleu Roi", en: "Royal Blue" } },
+      { hex: "#BFA27E", name: { fr: "Parchemin", en: "Parchment" } },
+      { hex: "#F20530", name: { fr: "Rouge Royal", en: "Royal Red" } },
     ],
     otherAssets: [
       crucheVin,
@@ -135,23 +151,30 @@ const logoSite = [
     mobileMockups: [homeMobile, optionsMobile, vehiculesMobile],
     figma:
       "https://www.figma.com/design/ikjPM3PDqcAJSok7MErz1G/Tuum-vehiculum?node-id=13-55&t=RgONSxvPaCgWXrZM-1",
-    extraDescription:
-      "Pour ce hackathon, je me suis principalement chargée des maquettes sur Figma, des illustrations et du responsive de l'application.",
+    extraDescription: {
+      fr: "Pour ce hackathon, je me suis principalement chargée des maquettes sur Figma, des illustrations et du responsive de l'application.",
+      en: "For this hackathon, I mainly took care of the Figma mockups, the illustrations and the responsive layout of the app.",
+    },
   },
   {
     id: 4,
     image: choco,
     name: "Choc'n Click",
     video: "https://youtu.be/xQJVWZUDYyQ",
-    sloggan: "Un jeu à base de chocolatine qui déstresse",
-    description:
-      "Premier projet réalisé en groupe, pensé et conçu en l'espace de deux semaines et très largement inspiré du jeu Cookie Clicker. En plus de ma contribution au développement, j'ai eu le plaisir de donner vie aux illustrations qui parsèment ce jeu. N'hésitez pas à vous plonger dans cette expérience ludique et divertissante !",
+    sloggan: {
+      fr: "Un jeu à base de chocolatine qui déstresse",
+      en: "A stress-relieving game made of chocolatines",
+    },
+    description: {
+      fr: "Premier projet réalisé en groupe, pensé et conçu en l'espace de deux semaines et très largement inspiré du jeu Cookie Clicker. En plus de ma contribution au développement, j'ai eu le plaisir de donner vie aux illustrations qui parsèment ce jeu. N'hésitez pas à vous plonger dans cette expérience ludique et divertissante !",
+      en: "My first team project, designed and built in two weeks and heavily inspired by Cookie Clicker. Besides contributing to the development, I had the pleasure of bringing to life the illustrations scattered throughout the game. Feel free to dive into this fun and playful experience!",
+    },
     github: "https://github.com/lOttedev/projet-choc-n-clic.git",
     url: "https://cedricsia.github.io/",
     colors: [
-      { hex: "#2e294e", name: "Violette" },
-      { hex: "#f5a72d", name: "Beurre Doré" },
-      { hex: "#a66203", name: "Pâte Cuite" },
+      { hex: "#2e294e", name: { fr: "Violette", en: "Violet" } },
+      { hex: "#f5a72d", name: { fr: "Beurre Doré", en: "Golden Butter" } },
+      { hex: "#a66203", name: { fr: "Pâte Cuite", en: "Baked Dough" } },
     ],
     desktopMockups: [
       logoChocNClic,
@@ -172,8 +195,10 @@ const logoSite = [
       upgrade2,
       upgrade3,
     ],
-    extraDescription:
-      "Je me suis occupée de l'UI/UX ainsi que de l'ensemble du code CSS et du responsive. J'ai également réalisé toutes les illustrations à la tablette graphique sous Photoshop. Le fichier Figma des maquettes ayant été supprimé par le propriétaire principal du projet, je n'ai malheureusement pas d'image ni de lien à présenter pour cette partie.",
+    extraDescription: {
+      fr: "Je me suis occupée de l'UI/UX ainsi que de l'ensemble du code CSS et du responsive. J'ai également réalisé toutes les illustrations à la tablette graphique sous Photoshop. Le fichier Figma des maquettes ayant été supprimé par le propriétaire principal du projet, je n'ai malheureusement pas d'image ni de lien à présenter pour cette partie.",
+      en: "I handled the UI/UX as well as all the CSS and the responsive layout. I also drew every illustration on a graphics tablet in Photoshop. The Figma file with the mockups was deleted by the project's main owner, so unfortunately I have no images or link to show for that part.",
+    },
   },
 
   {
@@ -181,9 +206,14 @@ const logoSite = [
     image: questubois,
     name: "Questubois",
     video: "https://youtu.be/Mhlso1hKR8o",
-    sloggan: "L'application de rencontre avec ta bière du moment",
-    description:
-      "Questubois incarne le fruit d'une collaboration collective au sein d'une plateforme dédiée à l'univers de la bière. Cette création englobe divers jeux captivants : l'un d'entre eux offre la possibilité de sélectionner sa bière idéale en personnalisant un profil, dans une démarche évoquant celle de Tinder. L'autre fonctionnalité, permet de choisir une ou plusieurs variétés de bières en harmonie avec ses choix culinaires.",
+    sloggan: {
+      fr: "L'application de rencontre avec ta bière du moment",
+      en: "The dating app for finding your beer of the moment",
+    },
+    description: {
+      fr: "Questubois incarne le fruit d'une collaboration collective au sein d'une plateforme dédiée à l'univers de la bière. Cette création englobe divers jeux captivants : l'un d'entre eux offre la possibilité de sélectionner sa bière idéale en personnalisant un profil, dans une démarche évoquant celle de Tinder. L'autre fonctionnalité, permet de choisir une ou plusieurs variétés de bières en harmonie avec ses choix culinaires.",
+      en: "Questubois is the result of a team collaboration on a platform dedicated to the world of beer. It includes several engaging games: one lets you find your ideal beer by setting up a profile, in a Tinder-like way. The other helps you pick one or more beers that pair well with your food.",
+    },
     github: null,
     url: null,
     colors: [
@@ -211,8 +241,10 @@ const logoSite = [
       questuboisIphone7,
     ],
     // mobileMockups: [questuboisIphoneSe1, questuboisIphone3, questuboisIphone7],
-    extraDescription:
-      "Sur ce projet, j'ai réalisé l'ensemble des illustrations ainsi qu'une partie de l'UI/UX, la mise en page et le responsive. J'ai également développé la fonctionnalité (front et back) qui aide l'utilisateur à choisir sa bière selon son humeur, la météo et les circonstances, en cliquant simplement sur les images correspondantes. Nous avons connecté une API disposant d'une très large bibliothèque de bières.",
+    extraDescription: {
+      fr: "Sur ce projet, j'ai réalisé l'ensemble des illustrations ainsi qu'une partie de l'UI/UX, la mise en page et le responsive. J'ai également développé la fonctionnalité (front et back) qui aide l'utilisateur à choisir sa bière selon son humeur, la météo et les circonstances, en cliquant simplement sur les images correspondantes. Nous avons connecté une API disposant d'une très large bibliothèque de bières.",
+      en: "On this project, I created all the illustrations as well as part of the UI/UX, the layout and the responsive design. I also built the feature (front and back end) that helps users choose a beer based on their mood, the weather and the occasion, simply by clicking the matching pictures. We connected an API with a very large library of beers.",
+    },
   },
 ];
 
